@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltrixBot | diabetes</title>
+
+  <!-- font awesome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+
+  <!-- css file link -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+
+</head>
+<body>
+
+    <!-- ================================ header section start================================ -->
+
+    {%include "header.html" %}
+
+    <!--================================  header section end ================================ -->
+
+    <!-- ================================ form section start================================  -->
+
+    <section class="formbox">
+
+      <h1 class="heading"><span>diabetes</span></h1>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md d-none d-lg-block">
+            <div class="image">
+              <img src="../../static/image/Diabetes.gif" alt="">
+            </div>
+          </div>
+          <div class="col-md">
+            <form id="form" >
+              <h3>check up</h3>
+              <p>Answer the following questions then start.</p>
+
+              
+                <label for="inp_age">Age</label>
+                <input type="number" min="1" oninput="validateInput(this)" class="box" name='Age' id="age" value="Age"  maxlength="2" />
+              
+
+              <div class="gender">
+                <label for="gender">Gender</label>
+                  <select id="gender" name="Gender" >
+                    <!-- <option value="" disabled selected>*Please Select*</option> -->
+                    <option value=1 name="Gender" {% if gender == 'Male' %}selected{% endif %}>Male</option>
+                    <option value=0 name="Gender" {% if gender == 'Female' %}selected{% endif %}>Female</option>
+
+                  </select>
+              </div>
+              <h4></h4>
+              <table>
+                <tr>
+                  <th class="first-col" id="inp_firstcol"></th>
+                  <th>Yes</th>
+                  <th>NO</th>
+                </tr>
+
+                <tr>
+                  <td class="first-col">If you may feel thirsty all of the time or have persistent dry mouth?</td>
+                  <td><input type="radio" value=1 name='Polydipsia' required/></td>
+                  <td><input type="radio" value=0 name='Polydipsia' /></td>
+                </tr>
+
+                <tr>
+                  <td class="first-col">If you urinate more than 6-7 times in day?</td>
+                  <td><input type="radio" value=1 name='Polyuria' required/></td>
+                  <td><input type="radio" value=0 name='Polyuria' /></td>
+                </tr>
+
+                <tr>
+                  <td class="first-col">Do you suffer Sudden Weight loss?</td>
+                  <td><input type="radio" value=1 name='Sudden_Weight_Loss' required/></td>
+                  <td><input type="radio" value=0 name='Sudden_Weight_Loss' /></td>
+                </tr>
+
+                <tr>
+                  <td class="first-col">Do you suffer from hair loss (alopecia)?</td>
+                  <td><input type="radio" value=1 name='Alopecea' required/></td>
+                  <td><input type="radio" value=0 name='Alopecea' /></td>
+                </tr>
+
+              </table>
+      
+              <!-- <h4>Any comments, questions or suggestions?</h4>
+              <textarea rows="3" id="inp_comment"></textarea> -->
+              <div class="button-row">
+                <button type="submit" class="custom-btn" id="start" value='pred'>start</button>
+                <button type="button" id="btn-reset" class="custom-btn">Reset</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- API result section start -->
+      <div class="predict" id="result" style="visibility: hidden;">
+        <div class="loader"></div>
+      </div>
+    </section>
+
+  <!-- ================================ form section end ================================ -->
+
+    <!--================================ footer section starts ================================-->
+
+    {%include "footer.html" %}
+
+    <!--================================ footer section ends ================================-->
+
+
+
+
+<!-- bootstrap js file link -->
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+
+<!-- js API -->
+<script>
+
+const form = document.getElementById('form');
+// const gender =document.getElementById('gender').value;
+// const age = document.getElementsById('age').value;
+// const polydipsia = document.getElementsByName('polydipsia').value;
+// const polyuria = document.getElementsByName('polyuria').value;
+// const weightLoss = document.getElementsByName('weight-loss').value;
+// const alopecia = document.getElementsByName('alopecia').value;
+
+document.getElementById("btn-reset").addEventListener("click", function() {
+      location.reload(); // Reload the page
+    });
+
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  //check if age is empty
+  if (document.getElementById('age').value == "") {
+    alert("Please enter your age");
+    return false;
+  }
+  //check if gender is empty 
+  if (document.getElementById('gender').value == "") {
+    alert("Please select your gender");
+    return false;
+  }
+
+  document.getElementById('result').style.visibility = "visible";
+  try{
+  const formData = new FormData(form);
+  const info = Object.fromEntries(formData);
+  // console.log(data);            //to check the data send from form
+  const response = await fetch('https://elect-lab-production.up.railway.app/diabetes_prediction' , {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(info),
+  })
+  const resultResponse = await response.json();
+  // console.log(resultResponse);
+
+  //show result
+  const result = await fetch('https://elect-lab-production.up.railway.app/ResDia');
+  const data = await result.json();
+  // console.log(data);
+  // document.getElementById('result').style.visibility = "visible";
+  document.getElementById('result').innerHTML =`
+          <div class="result" id="result" style="visibility: visible;">
+            <h2> Result : ${data.result} 
+            </h2>
+          </div>`;
+  }catch(error){
+    // console.log(error);
+    alert("Something went wrong, please try again");
+    location.reload();
+  }
+});
+
+// validate age input
+function validateInput(input) {
+  // Remove non-numeric characters
+  input.value = input.value.replace(/[^0-9]/g, '');
+
+  // Limit length to 2 digits
+  if (input.value.length > 2) {
+    input.value = input.value.slice(0, 2);
+  }
+
+  // Limit maximum value to 99
+  if (parseInt(input.value) > 99) {
+    input.value = '99';
+  }
+}
+</script>
+
+</body>
+</html>

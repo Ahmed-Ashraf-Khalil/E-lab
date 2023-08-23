@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; 
+  border: none;
+  transition: all .2s ease-out;
+  text-decoration: none;
+  /* font-size: 16px; */
+}
+
+html{
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+body{
+  color: #b8b8b8;
+  background-color: #e2e6ea;
+}
+
+form{
+  width: 45%;
+  height: 400px;
+  margin: 13rem auto;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+
+h1{
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.input-field{
+  margin: 10px auto;
+}
+
+label{
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: var(--black);
+}
+
+.form-control {
+  font-weight: 600;
+  font-size: 1.5rem;
+  width: 90%;
+}
+.form-control::placeholder {
+  color: rgb(85, 85, 85);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn{
+  margin-top: 20px;
+  margin-left: 70px;
+  font-size: 1.5rem;
+  width: 40%;
+  height: 35px;
+  margin-right: 20px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  form {
+    width: 300px;
+    height: 500px;
+  }
+  .row{
+    display: inline-block;
+    width: 100%;
+  }
+  .input-field{
+    width: 100%;
+    margin: 5px;
+    margin-bottom: 20px;
+  }
+  label{
+    font-size: 14px;
+  }
+  
+  
+}
+
+    /* Media query for screen sizes between 601px and 900px */
+    @media screen and (min-width: 601px) and (max-width: 900px) {
+      form {
+        width: 600px;
+        height: 350px;
+      }
+    }

@@ -1,0 +1,61 @@
+
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand" data-aos="fade-down" href="{{ url_for('home') }}">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>E-LAB</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-lg-0" data-aos="fade-down">
+              {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link nav-indicator" aria-current="page" href="{{ url_for('home') }}#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-indicator" href="{{ url_for('home') }}#services">services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-indicator" href="{{ url_for('home') }}#diagnose">diagnose</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-indicator" href="{{ url_for('home') }}#reviews">reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-indicator" href="{{ url_for('home') }}#blog">blog</a>
+              </li>
+            </ul>
+            <ul class="pt-3" data-aos="fade-down">
+                <a  href="{{url_for('profile')}}"><button class="log-btn">Profile</button></a>
+                <a  href="{{url_for('logout')}}" class="reg-btn text-light">Logout</a>
+            </ul>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link nav-indicator" aria-current="page" href="{{ url_for('home') }}#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-indicator" href="{{ url_for('home') }}#services">services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-indicator" href="{{ url_for('home') }}#diagnose">diagnose</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-indicator" href="{{ url_for('home') }}#reviews">reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-indicator" href="{{ url_for('home') }}#blog">Blog</a>
+            </li>
+          </ul>
+          <ul class="pt-3" data-aos="fade-down">
+              <a  href="{{url_for('login')}}"><button class="log-btn">Login</button></a>
+              <a  href="{{url_for('signup')}}" class="reg-btn text-light">Sign Up</a>
+          </ul>
+          {% endif %}
+          </div>
+        </div>
+      </nav>
+
+    </header>

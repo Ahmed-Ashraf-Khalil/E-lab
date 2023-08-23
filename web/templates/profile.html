@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+
+      <!-- font awesome link -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
+      <!-- bootstrap link -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+      <!-- css file link -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+      <!-- css file link -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+
+          <!-- ================================ header section start================================ -->
+          {% include "header.html" %}
+          <!--================================  header section end ================================ -->
+
+          <form method="POST">
+            <h1>Profile</h1>
+            <div class="row">
+              <div class="input-field col-4">
+                <label for="name">Your Name: </label>
+                <input type="text" id="name" class="form-control" value="{{username}}"  readonly>
+              </div>
+              <div class="input-field col-5">
+                <label for="email">Email Address: </label>
+                <input type="email" id="email" class="form-control" placeholder="{{email}}" disabled>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col-4">
+                <label for="gender">Gender: </label>
+                <input type="text" id="gender" class="form-control" value="{{gender}}"  readonly>
+              </div>
+              <div class="input-field col-5">
+                <label for="blood">Blood Type: </label>
+                <input type="text" id="blood" class="form-control" value="{{blood_type}}" readonly>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col-4">
+                <label for="birth_date">date Of Birth: </label>
+                <input type="text" id="birth_date" class="form-control" value="{{birth_date}}"  readonly>
+              </div>
+              <div class="input-field col-5">
+                <label for="phone_number">Phone: </label>
+                <input type="tel" id="phone_number" class="form-control" value="{{phone_number}}"  readonly>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-auto">
+                <button type="submit"  class="btn btn-success">Save</button>
+              </div>
+              <div class="col-auto">
+                <a href="{{url_for('home')}}" class="btn btn-light">Cancel</a>
+              </div>
+            </div> -->
+          </form>
+
+      <!-- <div class="submit">
+      <button type="submit" class="btn">Sign Up </button>
+      </div> -->
+      <!-- <p>Already Have An Account? <br> <a href="{{url_for('login')}}">sign in</a></p> -->
+
+      <!--================================ footer section starts ================================-->
+
+      {%include "footer.html" %}
+
+      <!--================================ footer section ends ================================-->
+      
+
+
+                <!-- js file link -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+    <!-- jquery file link -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

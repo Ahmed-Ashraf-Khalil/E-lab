@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in</title>
+      <!-- font awesome link -->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+      <!-- bootstrap link -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+      <!-- css file link -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+      <!-- css file link -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/sign.css') }}">
+</head>
+<body>
+
+        <!-- ================================ header section start================================ -->
+        {% include "header.html" %}
+        <!--================================  header section end ================================ -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div id="flash" class="alert alert-{{ category }} alter-dismissible fade show " role="alert">
+          {{ message }}
+          <button type="button" class="btn-close ms-5" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+  <form action="/login" method="post">
+    <h1>Login</h1>
+      <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input type="email" name="email" id="email" class="inputs" placeholder="Email" required>
+      </div>
+
+      <div class="input-field">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" id="password" class="inputs" placeholder="Password" required>
+      </div>
+        <div class="submit">
+          <button type="submit" class="btn">Login</button>
+        </div>
+      <p>Not a member yet?<a href="{{url_for('signup')}}">Sign Up</a></p>
+  </form>
+
+      <!--================================ footer section starts ================================-->
+
+      {%include "footer.html" %}
+
+      <!--================================ footer section ends ================================-->
+
+          <!-- js file link -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+    <script>
+      setTimeout(function() {
+          document.getElementById('flash').remove();
+      }, 5000);
+    </script>
+</body>
+</html>

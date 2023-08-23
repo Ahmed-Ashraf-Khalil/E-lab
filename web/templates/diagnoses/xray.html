@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltrixBot | Chest x-ray</title>
+
+  <!-- font awesome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+  <!-- css file link -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/photo.css') }}">
+
+</head>
+<body>
+
+    <!-- ================================ header section start================================ -->
+
+    {%include "header.html" %}
+
+    <!--================================  header section end ================================ -->
+
+  <!-- upload section start -->
+  <section class="base" id="base">
+
+    <h1 class="heading">chest <span>x-ray</span></h1>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md">
+          <div class="image">
+            <img src="../../static/image/x-ray.gif" alt="">
+          </div>
+        </div>
+        <div class="col col-md">
+          <div class="container">
+            <h3>Upload Your Photo</h3>
+            <form id="form" class="form-horizontal" enctype="multipart/form-data">
+            <div class="drag-area">
+              <div class="icon">
+                <i class="fas fa-images"></i>
+              </div>
+        
+              <!-- names on photo box (before choose photo) -->
+        
+            <!-- <span class="head"> Drag & Drop </span> -->
+            <!-- <span class="head"> or <span class="button"> browse </span> </span> -->
+            <span class="button custom-btn"> Choose a photo </span>
+            <input type="file" id="file" class="browse" hidden name="image" accept="image/png, image/jpg, image/jpeg">
+            <span class="support">Supports: PNG, JPG, JPEG</span>
+          </div>
+          <div class="button-row">
+            <button type="submit" id="btn-submit" class="custom-btn">start</button>
+            <button type="button" id="btn-reset" class="custom-btn">Reset</button>
+          </div>
+      
+          </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  <!-- API result section start -->
+
+  <div>
+
+    <div class="predict" id="result" style="visibility: hidden;">
+      <div class="loader"></div>
+    </div>
+
+  </div>
+
+  <!-- API result section end -->
+
+  </section> 
+  <!-- upload section end -->
+  
+
+
+    <!--================================ footer section starts ================================-->
+
+    {%include "footer.html" %}
+    <!--================================ footer section ends ================================-->
+
+
+<!-- bootstrap js file link -->
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+<!-- external js file link -->
+<script src="{{ url_for('static', filename='js/img.js') }}"></script> 
+
+  <!-- js Api code -->
+  <script>
+    const form = document.getElementById('form')
+    const userFile = document.getElementById('file');
+
+    document.getElementById("btn-reset").addEventListener("click", function() {
+      location.reload(); // Reload the page
+    });
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      // check if user choose a photo
+      if (!userFile.files[0]){
+        alert("Please choose a photo");
+        location.reload();
+      }
+      document.getElementById('result').style.visibility = "visible";
+      try {
+        const formData = new FormData();
+        formData.append('file', userFile.files[0]);
+        
+        //post request
+        const response = await fetch('http://elect-lab-production.up.railway.app/chest_predict', {
+          method: 'POST',
+          body: formData,
+          key: 'file',
+        })
+        const result = await response.json();
+        const resultResponse = await fetch(`http://elect-lab-production.up.railway.app/ResXray?file=${result.result}`)
+        const data = await resultResponse.json();
+        // console.log(data)
+          document.getElementById('result').innerHTML =`
+          <div class="result" id="result" style="visibility: visible;">
+            <h2> Result : ${data.result} 
+            </h2>
+          </div>`;
+
+      } catch (error) {
+        // console.error(error);
+        alert("Something went wrong, please try again");
+        location.reload();
+      }
+      });
+  </script>
+
+</body>
+</html>

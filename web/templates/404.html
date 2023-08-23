@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Error - Page Not Found</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+</head>
+<body>
+  <div id="container">
+    <div class="content">
+      <h2>404</h2>
+      <h4>oops! We got lost</h4>
+      <p>It looks like this page doesn't exist.Try going back or click the button below and we'll take you home.</p>
+      <a href="{{ url_for('home') }}">back to home</a>
+    </div>
+  </div>
+
+  <script>
+    var container = document.getElementById('container');
+    window.onmousemove = function(e){
+      var x = - e.clientX/5,
+          y = - e.clientY/5;
+      container.style.backgroundPositionX = x + 'px';
+      container.style.backgroundPositionY = y + 'px';
+    }
+  </script>
+</body>
+</html>

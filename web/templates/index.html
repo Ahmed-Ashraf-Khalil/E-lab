@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AltrixBot | check your health</title>
+
+
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <!-- AOS animate lib -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- css file link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <!-- ================================ header section start================================ -->
+    {% include "header.html" %}
+    <!--================================  header section end ================================ -->
+
+
+    <!--================================  home section start ================================ -->
+
+    <section class="home" id="home">
+      <div class="content" data-aos="fade-right">
+        <h3>excellent medical<br> specialty <span>healthcare</span></h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <a href="#" class="custom-btn">
+          contact us <span class="fas fa-chevron-right"></span>
+        </a>
+      </div>
+
+      <div class="image">
+        <img src="../static/image/home2.gif" alt="" data-aos="fade-up"/>
+      </div>
+    </section>
+
+    <!--================================ home section end ================================ -->
+
+    <!--================================ services section start ================================ -->
+
+    <section class="services" id="services" data-aos="fade-up">
+      <h1 class="top-heading">our <span>services</span></h1>
+      <h1 class="heading">easy steps</h1>
+
+      <div class="box-container">
+        <div class="box">
+          <img src="../static/image/service-3.png"/>
+          <!-- <i class="fa-solid fa-headset"></i> -->
+          <h3>Customer Support</h3>
+          <p>
+            knowledgeable assistance to ensure your satisfaction and exceed your expectations.
+          </p>
+        </div>
+
+        <div class="box">
+          <img src="../static/image/service-2.png"/>
+          <h3>The Right Answer</h3>
+          <p>
+            Count on our experts to deliver an accurate diagnosis.
+          </p>
+        </div>
+
+        <div class="box">
+            <img src="../static/image/rating1.png"/>
+          <h3>Verified patient reviews</h3>
+          <p>
+            Application ratings are from patients who used the services through E-lab.
+          </p>
+        </div>
+        
+        <div class="box">
+          <img src="../static/image/privacy.png"/>
+          <!-- <i class="fas fa-heartbeat"></i> -->
+          <h3>Privacy and Security</h3>
+          <p>
+            Ensuring your privacy and security to protect your data and confidentiality.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!--================================ services section end ================================-->
+
+    <!--================================ diagnose section start ================================-->
+    <section class="diagnose" id="diagnose">
+      <h1 class="top-heading" data-aos="flip-up">Diagnose</span></h1>
+      <h1 class="heading" data-aos="fade-up">check you health</h1>
+
+      <div class="box-container" data-aos="fade-up">
+        <div class="box">
+          <img src="../static/image/brain.png"/>
+          <!-- <i class="fas fa-diagnoses"></i> -->
+          <h3>brain tumor</h3>
+
+          <p>
+            abnormal cell growth in the brain, causing diverse symptoms.
+          </p>
+          <a href="{{ url_for('brain')}}" class="custom-btn"
+            >Check <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+
+        <div class="box">
+          <img src="../static/image/x-ray.png"/>
+          <h3>chest x-ray</h3>
+          <p>
+            radiation-based imaging for evaluating lungs, heart, and nearby structures.
+          </p>
+          <a href="{{ url_for('chest')}}" class="custom-btn"
+            >Check <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+
+        <div class="box">
+          <img src="../static/image/skin-cancer.png"/>
+          <h3>skin cancer</h3>
+          <p>
+            malignant tumor originating from abnormal skin cells.
+          </p>
+          <a href="{{ url_for('skin')}}" class="custom-btn"
+            >Check <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+
+        <div class="box">
+          <img src="../static/image/diabete.png"/>
+          <h3>diabetes</h3>
+          <p>
+            Chronic metabolic disorder with high blood sugar levels.
+          </p>
+          <a href="{{ url_for('diabete')}}" class="custom-btn"
+            >Check <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--================================ diagnose section end ================================-->
+
+    <!--================================ doctors section start ================================-->
+        <!-- <section class="doctors" id="doctors">
+          <h1 class="top-heading">Professinal Doctors</h1>
+          <h1 class="heading">Meet our Popular doctors</h1>
+    
+          <div class="box-container">
+
+            <div class="card" data-aos="fade-right">
+              <img src="../static/image/doc-4.jpg" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <h3 class="card-title">Dr. Ahmed Alaa</h3>
+                <div class="card-text">
+                  <a href="#">surgery</a>
+                  <i class="fas fa-star gold-star"><span>4.5</span></i>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+                <p class="reviews">120 Reviews</p>
+              </div>
+            </div>
+
+            <div class="card" data-aos="fade-right">
+              <img src="../static/image/doc-2.jpg" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <h3 class="card-title">Dr. Mariam</h3>
+                <div class="card-text">
+                  <a href="#">dentician</a>
+                  <i class="fas fa-star gold-star"><span>4.7</span></i>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+                <p class="reviews">1k+ Reviews</p>
+              </div>
+            </div>
+
+            <div class="card" data-aos="fade-left">
+              <img src="../static/image/doc-3.jpg" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <h3 class="card-title">Dr. Daniel</h3>
+                <div class="card-text">
+                  <a href="#">Some quick</a>
+                  <i class="fas fa-star gold-star"><span>4.5</span></i>
+                </div>
+                <a href="#" class="btn ">Book Now</a>
+                <p class="reviews">2K+ Reviews</p>
+              </div>
+            </div>
+
+            <div class="card" data-aos="fade-left">
+              <img src="../static/image/doc-3.jpg" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <h3 class="card-title">Dr. lee</h3>
+                <div class="card-text">
+                  <a href="#">Some quick</a>
+                  <i class="fas fa-star gold-star"><span>4.5</span></i>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+                <p class="reviews">299 Reviews</p>
+              </div>
+            </div>
+
+          </div>
+        </section> -->
+    
+    <!--================================ doctors section end ================================-->
+
+    <!--================================ Review section start ================================-->
+    <section class="reviews" id="reviews">
+    <h1 class="top-heading" data-aos="flip-up">Patient Reviews</h1>
+    <h1 class="heading" data-aos="fade-up">About Our services</h1>
+
+      <!-- Carousel wrapper -->
+      <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+        <!-- Controls -->
+        <div class="d-flex justify-content-center mb-4" data-aos="fade-up">
+          <button class="carousel-control-prev position-relative" type="button"
+            data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next position-relative" type="button"
+            data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- Inner -->
+        <div class="carousel-inner py-4" data-aos="fade-up">
+          <!-- Single item -->
+          <div class="carousel-item active" >
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <img class="rounded-circle shadow-1-strong mb-4"
+                    src="../static/image/review-4.jpg" alt="avatar"
+                    style="width: 150px;" />
+                  <h5 class="mb-3">Sarah Anderson</h5>
+                  <!-- <p>UX Designer</p> -->
+                  <p class="text-muted">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    I recently used this disease detection website to assess my symptoms, and I'm extremely satisfied with the experience.
+                  </p>
+                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-4 d-none d-lg-block">
+                  <img class="rounded-circle shadow-1-strong mb-4"
+                    src="../static/image/review-1.jpg" alt="avatar"
+                    style="width: 150px;" />
+                  <h5 class="mb-3">John Davis</h5>
+                  <p class="text-muted">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    it's a useful tool for assessment and gaining knowledge about possible diseases.I highly recommend it.
+                  </p>
+                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li>
+                      <i class="fas fa-star-half-alt fa-sm"></i>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-4 d-none d-lg-block">
+                  <img class="rounded-circle shadow-1-strong mb-4"
+                    src="../static/image/author.jpg" alt="avatar"
+                    style="width: 150px;" />
+                  <h5 class="mb-3">Ahmed Mohsen</h5>
+                  <p class="text-muted">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    The symptom checker on this disease detection website was quite helpful in assessing my symptoms.
+                  </p>
+                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="far fa-star fa-sm"></i></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Single item -->
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <img class="rounded-circle shadow-1-strong mb-4"
+                    src="../static/image/review-2.jpg" alt="avatar"
+                    style="width: 150px;" />
+                  <h5 class="mb-3">Emily Johnson</h5>
+                  <!-- <p>UX Designer</p> -->
+                  <p class="text-muted">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    The results provided a list of possible diseases, which helped me narrow down my concerns and seek appropriate medical attention.
+                  </p>
+                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-4 d-none d-lg-block">
+                  <img class="rounded-circle shadow-1-strong mb-4"
+                    src="../static/image/deafult-review.jpeg" alt="avatar"
+                    style="width: 150px;" />
+                  <h5 class="mb-3">Salma ashraf</h5>
+                  <p class="text-muted">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    The results offered detailed information about each disease. This helped me understand my symptoms better and eased my worries
+                  </p>
+                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li>
+                      <i class="fas fa-star-half-alt fa-sm"></i>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-4 d-none d-lg-block">
+                  <img class="rounded-circle shadow-1-strong mb-4"
+                    src="../static/image/review-3.jpg" alt="avatar"
+                    style="width: 150px;" />
+                  <h5 class="mb-3">Osama Ahmed</h5>
+                  <p class="text-muted">
+                    <i class="fas fa-quote-left pe-2"></i>
+                    The results offered a range of potential conditions, along with detailed information about each one. This helped me understand my symptoms better and eased my worries.
+                  </p>
+                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="far fa-star fa-sm"></i></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+<!-- Carousel wrapper -->
+    </section>
+    <!--================================ Review section end ================================-->
+
+        <!--================================ Blog section start ================================-->
+          <section id="blog" class="blog">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4 offset-lg-4 ">
+                  <div class="section-heading" data-aos="flip-up">
+                    <h1 class="top-heading">Recent News</h1>
+                    <h1 class="heading">check our blog posts</h1>
+                    <div class="line-dec"></div>
+                  </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-right">
+                  <div class="blog-post">
+                    <div class="thumb">
+                      <a href="https://my.clevelandclinic.org/health/diseases/6149-brain-cancer-brain-tumor" target="_blank"><img src="static/image/blog-brain.jpg" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <span class="category">Brain Tumor</span>
+                      <span class="date">06 February 2022</span>
+                      <a href="https://my.clevelandclinic.org/health/diseases/6149-brain-cancer-brain-tumor" target="_blank"><h4>Brain Cancer (Brain Tumor)</h4></a>
+                      <p>Brain tumors can be malignant (cancerous) or benign (noncancerous) and can affect children and adults.</p>
+                      <span class="author"><img src="../static/image/doc-3.jpg" alt="">By: lee Doe</span>
+                      <div class="border-first-button"><a href="https://www.mdlinx.com/" target="_blank">Discover More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6" >
+                  <div class="blog-posts">
+                    <div class="row" data-aos="fade-left">
+                      <div class="col-lg-12">
+                        <div class="post-item">
+                          <div class="thumb">
+                            <a href="https://www.medicalnewstoday.com/articles/324422" target="_blank"><img src="static/image/blog-virus.jpg" alt=""></a>
+                          </div>
+                          <div class="right-content">
+                            <span class="category">Viruses</span>
+                            <span class="date">12 February 2019</span>
+                            <a href="https://www.medicalnewstoday.com/articles/324422#summary" target="_blank"><h4>How to reduce the risk of getting sick</h4></a>
+                            <p>Most people experience colds or the flu from time to time. However, there are some proven ways to reduce the chances of becoming infected.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="post-item">
+                          <div class="thumb">
+                            <a href="https://www.medicalnewstoday.com/articles/323648#takeaway" target="_blank"><img src="static/image/blog-cancer.jpg" alt=""></a>
+                          </div>
+                          <div class="right-content">
+                            <span class="category">Cancer</span>
+                            <span class="date">6 january 2020</span>
+                            <a href="https://www.medicalnewstoday.com/articles/323648#takeaway" target="_blank"><h4>What to know about cancer</h4></a>
+                            <p>disease that results when cellular changes cause the uncontrolled growth and division of cells.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="post-item last-post-item">
+                          <div class="thumb">
+                            <a href="https://www.medicalnewstoday.com/articles/323627#summary" target="_blank"><img src="static/image/blog-diabetes.jpg" alt=""></a>
+                          </div>
+                          <div class="right-content">
+                            <span class="category">Diabetes</span>
+                            <span class="date">30 November 2021</span>
+                            <a href="https://www.medicalnewstoday.com/articles/323627#summary" target="_blank"><h4>Overview of diabetes types and treatments</h4></a>
+                            <p>Diabetes is a condition that impairs the body’s ability to process blood glucose, otherwise known as blood sugar.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--================================ Blog section end ================================-->
+        <!--================================ footer section starts ================================-->
+
+          {% include "footer.html" %}
+
+        <!--================================ footer section end ================================-->
+
+
+    <!-- js file link -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+    <!-- aos js file link -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- custom js file link -->
+    <script src="../static/js/script.js"></script>
+  </body>
+</html>
