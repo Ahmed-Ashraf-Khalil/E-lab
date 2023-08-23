@@ -2,35 +2,35 @@
 Artificial intelligence application for online disease detection
 ___________________________________________________
 ## Context
-application to check on your health and identify diseases and recommend to you the best doctors near to the area in which you are located, you can book with the doctor you want, as there is in this application that reads the medical analyzes and informs you of the disease that is found in medical analyzes.
-___________________________________________________
-### app run on http://127.0.0.1:4000/
-### can run as a docker image in http://127.0.0.1:4000/
+application to check on your health and diagnose diseases based on medical image scans such as MRI or numeric scans for diabetes as there is in this application that reads it and informs you of the disease that is predicted by a state of art model.
 ___________________________________________________
 ## Website 
 **Homepage:**
-![home page ](https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/8d8cdc3e-1d23-4e95-913e-66f380941f75)
+![home page ](https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/e062f001-6391-4841-ac37-f5178c3aabfb)
 
 **Homepage-video:**
-https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/1f24ca8d-3ffa-4620-959a-454c30a722ee
+
+https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/b892accd-6502-45ca-aabc-8a5d712b8980
 
 
 **Diagnose:**
-![brain](https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/aa3ff09f-dadd-439d-963c-8c6dfa2b45e4)
-![brain-result](https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/513d8b6d-5d44-47d7-9a85-65e8116ea4de)
+![brain](https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/182945c5-196e-4590-8099-de2db507cd8a)
+
+![brain-result](https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/fb552806-a806-4473-8d6b-f0823fc42c15)
 
 
-![diabetes-result-Crop](https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/92145fcd-55c4-451f-bae2-d8810ed53397)
+![diabetes-result-Crop](https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/2c86a889-c000-4b65-ab28-c45789e3ba0c)
 
 ___________________________________________________
 ## Responsive-Design
 **Mobile:**
 
 
-![diagnoses-mobile](https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/c33c1800-803a-4478-b495-e8f8cccab352)
-![brain-mobile](https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/3bb5fffa-3e66-45b0-9fa8-1cd42726600a)
+![diagnoses-mobile](https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/ccffb778-8cc3-458a-a36f-8eae04c30684)
+
+![brain-mobile](https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/4a9581ab-c07f-4343-952e-5c988e3070b3)
 
 **Tablet:**
 
 
-![homepage-Tablet](https://github.com/AliEissa74/E-lab-flask-App/assets/70850717/37b282b7-7c36-4104-9931-f1d3bdf79b0b)
+![homepage-Tablet](https://github.com/Ahmed-Ashraf-Khalil/E-lab/assets/59618586/c1c4d4cf-7d6b-4e4c-a2ee-e9537f463ecc)
